@@ -23,3 +23,31 @@ The environment is represented by a state space which has 37 dimensions and cont
 
 The task is episodic and considered as solved when the agent gets an average score of +13 over 100 consecutive episodes.
 
+# Getting Started
+
+I'd recommend using python vesrison 3.6 since it's compatible with all other project's dependencies.
+
+install unityagents
+pip install unityagents
+
+install pytorch
+https://pytorch.org/
+
+
+Download the Unity Environment that matches your operating system:
+
+Linux: click here
+https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip
+Mac OSX: click here
+https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip
+Windows (32-bit): click here
+https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip
+Windows (64-bit): click here
+https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip
+
+# Instructions
+
+For running agen't training algorythm please run scripts/main.py script.
+Please note that you might need to modify scripts/main.py scipt and set proper path to the unity environment (by default env_path = "../data/Banana_Windows_x86_64/Banana.exe").
+
+
