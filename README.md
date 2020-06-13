@@ -1,7 +1,6 @@
 # UdacityRL-Navigation
 
-
-todo: add video/gif/image
+[Banana agent](/images/banana.gif)
 
 # Project Details
 
@@ -25,29 +24,25 @@ The task is episodic and considered as solved when the agent gets an average sco
 
 # Getting Started
 
-I'd recommend using python vesrison 3.6 since it's compatible with all other project's dependencies.
+I'd recommend using python version 3.6 since it's compatible with all other project's dependencies.
 
 install unityagents
 pip install unityagents
 
-install pytorch
-https://pytorch.org/
+install [pytorch](https://pytorch.org/)
+
 
 
 Download the Unity Environment that matches your operating system:
 
-Linux: click here
-https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip
-Mac OSX: click here
-https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip
-Windows (32-bit): click here
-https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip
-Windows (64-bit): click here
-https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip
+Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
+Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
+Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
+Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
 
 # Instructions
 
-For running agen't training algorythm please run scripts/main.py script.
-Please note that you might need to modify scripts/main.py scipt and set proper path to the unity environment (by default env_path = "../data/Banana_Windows_x86_64/Banana.exe").
+For running agent training algorithm please run scripts/main.py script.
+Please note that you might need to modify scripts/main.py script and set a proper path to the unity environment (by default env_path = "../data/Banana_Windows_x86_64/Banana.exe").
 
 
