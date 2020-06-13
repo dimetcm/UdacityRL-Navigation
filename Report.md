@@ -26,16 +26,27 @@ One of the ideas of DQN is to use supervised learning algorythm such as deep neu
 
  * 2.2 "learn" - observes a new state and a reward after selecting an action which gives the agent a possibility to learn and improve the action selection function/network from its expirience. Agent keeps track of it's previous expirience by storing the last k (state, action, next state, reward) tupels in it's replay buffer. Later a minibutches selected random-uniformly fro the replay buffer are used for traning DNN to map states to actions values (Q function).
 
- * The are two extensions to the original DQN algorythm:
- * 2.3. Target network. This technic helps to stabilise trainning motivated by the fact that the optimal Q value function learned by the neural network is constantly changing and dependent on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
+ * 2.3. The are two extensions to the original DQN algorythm:
+ * 2.3.1. Target network. This technic helps to stabilise trainning motivated by the fact that the optimal Q value function learned by the neural network is constantly changing and dependent on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
 
- * 2.4. Double DQN. Due to the noises in the environment and errors in fuction approximation using neural networks agent may not fully explore environment which can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
+ * 2.3.2 Double DQN. Due to the noises in the environment and errors in fuction approximation using neural networks agent may not fully explore environment which can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
+ * the agent and replay buffer contains the following set of hyperparameters:
+   * BUFFER_SIZE = int(1e5)  # replay buffer size
+   * BATCH_SIZE = 64  # minibatch size
+   * GAMMA = 0.99  # discount factor
+   * TAU = 1e-3  # for soft update of target parameters
+   * LR = 5e-4  # learning rate
+   * UPDATE_EVERY = 4  # how often to update the network
 
 3. scripts/model.py - defines neural network model.
 The network model contains three linear layes, input layer with size (state_size, fc1_units=64), hidden layer with size (fc1_units=64, fc2_units=64) and output layer with size (fc2_units, action_size). Relu activation function is used for the input and the hidden layer.
 
 # Plot of Rewards
+Environment is usually solved in less than 600 episodes:
 
+![Scores:](/images/scores_1.png)
+
+![Scores:](/images/scores_2.png)
 # Ideas for Future Work
 
 Prioritezed expirience replay. The intuition behind this technic is that some of the expiriences are more informative for the agent and as a result the agent can learn faster from such expiriences. Main idea is to determine how informative is a given expirience record (it can be measured wiht absolute difference between expected and actual Q-value) and increase the probability of sampling of such expiriences.
