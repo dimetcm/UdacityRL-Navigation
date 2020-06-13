@@ -15,21 +15,21 @@ Apart of the trainning loop the main.py script tracks and plots the agent's aver
     eps_end (float): minimum value of epsilon
     eps_decay (float): multiplicative factor (per episode) for decreasing epsilon
 
-2. scripts/dqn_agent - definens the Agent class which implements DQN algorythm with two extensions (Target Networks and Double DQN). https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf
-
-The Agent class has two main functions:
+2. scripts/dqn_agent - definens the Agent class which implements DQN algorythm with two extensions (Target Networks and Double DQN). https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf. The Agent class has two main functions:
 "act" - selects an action for a given state using epsilon-greedy action selection. Epsilon-greedy action selection helps the agent to balance between exploration and exploitantion.
 The are two possibilities of how action can be selected. 
 Either the agent selects action randomly (exploration) or uses function aproximation algorythm for selecting an action with a highest value for a given state (exploitation, Q function).
 One of the ideas of DQN is to use supervised learning algorythm such as deep neural networks as a function aproximator, which has a state as an input parameters of the DNN and action values as an output.
 
-
 "learn" - observes a new state and a reward after selecting an action which gives the agent a possibility to learn and improve the action selection function/network from its expirience. Agent keeps track of it's previous expirience by storing the last k (state, action, next state, reward) tupels in it's replay buffer. Later a minibutches selected random-uniformly fro the replay buffer are used for traning DNN to map states to actions values (Q function).
 
 The are two extensions to the original DQN algorythm:
-1. Target network. This technic helps to stabilise trainning motivated by the fact that the optimal Q value function learned by the neural network is constantly changing and dependent on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
+2.1. Target network. This technic helps to stabilise trainning motivated by the fact that the optimal Q value function learned by the neural network is constantly changing and dependent on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
 
-2. Double DQN. Due to the noises in the environment and errors in fuction approximation using neural networks agent may not fully explore environment which can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
+2.2. Double DQN. Due to the noises in the environment and errors in fuction approximation using neural networks agent may not fully explore environment which can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
+
+3. scripts/model.py - defines neural network model.
+The network model contains three linear layes, input layer with size (state_size, fc1_units=64), hidden layer with size (fc1_units=64, fc2_units=64) and output layer with size (fc2_units, action_size). Relu activation function is used for the input and the hidden layer.
 
 # Plot of Rewards
 
