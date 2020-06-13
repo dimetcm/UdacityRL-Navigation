@@ -3,6 +3,7 @@ import numpy as np
 from collections import namedtuple, deque
 from dqn_agent import Agent
 import torch
+import matplotlib.pyplot as plt
 
 env_path = "../data/Banana_Windows_x86_64/Banana.exe"
 env = UnityEnvironment(file_name=env_path)
@@ -72,3 +73,8 @@ def train(brain_name, n_episodes=2000, max_t=1000, eps_start=1.0, eps_end=0.01, 
     return scores
 
 scores = train(brain_name)
+
+plt.plot(np.arange(len(scores)), scores)
+plt.ylabel('Score')
+plt.xlabel('Episode #')
+plt.show()
