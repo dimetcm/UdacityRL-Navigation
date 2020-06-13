@@ -1,6 +1,6 @@
 # UdacityRL-Navigation
 
-[Banana agent](/images/banana.gif)
+![Banana agent](/images/banana.gif)
 
 # Project Details
 
