@@ -26,14 +26,14 @@ The task is episodic and considered as solved when the agent gets an average sco
 
 I'd recommend using python version 3.6 since it's compatible with all other project's dependencies.
 
-install unityagents
-pip install unityagents
+* install unityagents with:
+`pip install unityagents`
 
-install [pytorch](https://pytorch.org/)
+* install [pytorch](https://pytorch.org/)
 
 
 
-Download the Unity Environment that matches your operating system:
+* Download the Unity Environment that matches your operating system:
 
 Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
 Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
