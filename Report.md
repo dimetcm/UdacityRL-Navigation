@@ -48,6 +48,5 @@ Environment is usually solved in less than 600 episodes:
 
 ![Scores:](/images/scores_2.png)
 # Ideas for Future Work
-
-Prioritized experience replay. The intuition behind this technique is that some of the experiences are more informative for the agent and as a result the agent can learn faster from such experiences. Main idea is to determine how valuable (informative) a given experience  record (it can be measured with absolute difference between expected and actual Q-value) and increase the probability of sampling of such experiences.
+Implement prioritized experience replay. The intuition behind this technique is that some of the experiences are more informative for the agent and as a result the agent can learn faster from such experiences. Main idea is to determine how valuable (informative) a given experience  record (it can be measured with absolute difference between expected and actual Q-value) and increase the probability of sampling of such experiences.
 
