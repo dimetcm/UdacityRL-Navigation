@@ -20,21 +20,20 @@ Apart of the trainning loop the main.py script tracks and plots the agent's aver
 The Agent class has two main functions:
 "act" - selects an action for a given state using epsilon-greedy action selection. Epsilon-greedy action selection helps the agent to balance between exploration and exploitantion.
 The are two possibilities of how action can be selected. 
-Either the agent selects action randomly (exploration) or uses function aproximation algorythm for selectin an action with a highest value for a given state.
-One of the ideas of DQN is to use supervised learning such as deep neural networks as a function aproximator, which has a state as an input parameters of the DNN and 
-
-"learn" - observes a new state and a reward after selecting an action which gives the agent a possibility to learn and improve the action selection function from his expirience. 
-DQN  
+Either the agent selects action randomly (exploration) or uses function aproximation algorythm for selecting an action with a highest value for a given state (exploitation, Q function).
+One of the ideas of DQN is to use supervised learning algorythm such as deep neural networks as a function aproximator, which has a state as an input parameters of the DNN and action values as an output.
 
 
-Agent tries to maximize it's commulative reward over an episode by selecting an actions which gives him the best e
-The general idea of the DQN algorythm is maximizing the agent's reward by selecting and action A given a state S selecting the most appropriate action  to keep track of the agent's previous expirience (state, action, next state, reward) and select the most appropriate action when the agents observe
+"learn" - observes a new state and a reward after selecting an action which gives the agent a possibility to learn and improve the action selection function/network from its expirience. Agent keeps track of it's previous expirience by storing the last k (state, action, next state, reward) tupels in it's replay buffer. Later a minibutches selected random-uniformly fro the replay buffer are used for traning DNN to map states to actions values (Q function).
 
+The are two extensions to the original DQN algorythm:
+1. Target network. This technic helps to stabilise trainning motivated by the fact that the optimal Q value function learned by the neural network is constantly changing and dependent on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
 
+2. Double DQN. Due to the noises in the environment and errors in fuction approximation using neural networks agent may not fully explore environment which can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
 
-Runs training loop for the agent which allows the agent to interact with the environment by executing actions and receiving the next state and a reward form the environment.
-Agent 
+# Plot of Rewards
 
+# Ideas for Future Work
 
-and tracks agent's score.
-There is a closer look on how 
+Prioritezed expirience replay. The intuition behind this technic is that some of the expiriences are more informative for the agent and as a result the agent can learn faster from such expiriences. Main idea is to determine how informative is a given expirience record (it can be measured wiht absolute difference between expected and actual Q-value) and increase the probability of sampling of such expiriences.
+
