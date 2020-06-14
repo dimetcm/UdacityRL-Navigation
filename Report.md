@@ -22,17 +22,17 @@ It defines the Agent class that implements [DQN](https://storage.googleapis.com/
 
  * The Agent class has two main functions:
 
- * 2.1 *"act"* - selects an action for a given state using epsilon-greedy action selection. Epsilon-greedy action selection helps the agent balance between exploration and exploitation.
+ * 2.1 **"act"** - selects an action for a given state using epsilon-greedy action selection. Epsilon-greedy action selection helps the agent balance between exploration and exploitation.
 There are two possibilities of how action can be selected: 
 The agent selects action either randomly (exploration) or uses a function approximation algorithm for selecting an action with a highest value for a given state (exploitation, Q function).
 One of the ideas of DQN is to use supervised learning algorithms such as deep neural networks as a function approximator, which has a state as an input parameters of the DNN and action values as an output.
 
- * 2.2 *"learn"* - observes a new state and a reward after selecting an action which gives the agent a possibility to learn and improve the action selection function/network from its experience. Agent keeps track of its previous experience by storing the last k (state, action, next state, reward) tuples in its replay buffer. Later the minibatches selected randomly-uniformly from the replay buffer are used for training DNN to map states to actions values (Q function).
+ * 2.2 **"learn"** - observes a new state and a reward after selecting an action which gives the agent a possibility to learn and improve the action selection function/network from its experience. Agent keeps track of its previous experience by storing the last k (state, action, next state, reward) tuples in its replay buffer. Later the minibatches selected randomly-uniformly from the replay buffer are used for training DNN to map states to actions values (Q function).
 
  * 2.3. There are two extensions to the original DQN algorithm implemented in the project:
- * 2.3.1. *Target network.* This technique helps stabilise training by the fact that the optimal Q value function learned by the neural network is constantly changing and depends on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
+ * 2.3.1. **Target network.** This technique helps stabilise training by the fact that the optimal Q value function learned by the neural network is constantly changing and depends on Q value functions itself. The main idea of the target network approach is to introduce a second, target network, which is a lagged copy of the original network for stabilizing the target Q value function.
 
- * 2.3.2 *Double DQN.* Due to the noises in the environment and errors in function approximation using neural networks, the agent may not fully explore the environment, what can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using a second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
+ * 2.3.2 **Double DQN.** Due to the noises in the environment and errors in function approximation using neural networks, the agent may not fully explore the environment, what can lead to Q values being overestimated. The Double DQN algorithm reduces the overestimation of Q-values by selecting the best action for a state using one network and estimating the Q-value by using a second network. Local and target networks can be used correspondingly for action selection and target Q-value estimation.
  * the agent and replay buffer contains the following set of hyperparameters:
    * BUFFER_SIZE = int(1e5)  # replay buffer size
    * BATCH_SIZE = 64  # minibatch size
