@@ -24,14 +24,12 @@ The task is episodic and considered as solved when the agent gets an average sco
 
 # Getting Started
 
-I'd recommend using python version 3.6 since it's compatible with all other project's dependencies.
+* create (and activate) a new Python environment. I'd recommend using python version 3.6 since it's compatible with all other project's dependencies.
 
 * install unityagents with:
 `pip install unityagents`
 
 * install [pytorch](https://pytorch.org/)
-
-
 
 * Download the Unity Environment that matches your operating system:
 
@@ -39,6 +37,8 @@ Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/B
 Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
 Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
 Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
+
+* in case if you're getting troubles wiht the dependencies setup please take a look at the dependencies section from the [Udacity DRL course repository](https://github.com/udacity/deep-reinforcement-learning/blob/master/README.md)
 
 # Instructions
 
